@@ -9,6 +9,7 @@ const indexRoutes = require('./Routes/index');
 const authRoutes = require('./Routes/authRoutes');
 const homeRoutes = require('./routes/homeRoutes');
 const profileRoutes = require('./routes/profileRoutes');
+const bookRoutes = require("./routes/bookRoutes");
 
 
 //load environment variables
@@ -17,7 +18,7 @@ dotenv.config();
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 
 app.use(bodyParser.json());
@@ -50,7 +51,7 @@ app.use('/', indexRoutes);
 app.use('/auth', authRoutes);
 app.use('/', homeRoutes);
 app.use('/', profileRoutes);
-
+app.use("/", bookRoutes);
 
 //for db connection
 app.get('/db-test', async (req, res) => {
